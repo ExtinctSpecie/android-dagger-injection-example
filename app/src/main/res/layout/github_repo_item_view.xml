@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.skarra.basetask.domain.model.GithubRepo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/x_3">
+
+        <ImageView
+            android:id="@+id/github_repo_avatar_iv"
+            android:layout_width="@dimen/x_12"
+            android:layout_height="@dimen/x_12"
+            app:imageUrl="@{model.owner.avatarUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/colorPrimary"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/github_repo_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x_2"
+            android:text="@{model.name}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/github_repo_avatar_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="repoName" />
+
+        <TextView
+            android:id="@+id/github_repo_full_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/x_2"
+            android:text="@{model.fullName}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/github_repo_avatar_iv"
+            app:layout_constraintTop_toBottomOf="@id/github_repo_name_tv"
+            tools:text="fullName" />
+
+        <TextView
+            android:id="@+id/github_repo_description_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x_2"
+            android:text="@{model.description}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/github_repo_avatar_iv"
+            tools:text="repoDescription" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/someCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/github_repo_description_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
